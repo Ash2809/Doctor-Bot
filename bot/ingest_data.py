@@ -31,4 +31,6 @@ def ingest(status):
 if __name__ == "__main__":
     vector_store = ingest("done")#"done" HERE BECAUSE I HAD ALREADY CREATED DB IN experiments.py
     print("DB has been initialized")
-
+    results = vector_store.similarity_search("What is pneumonia?")
+    for res in results:
+        print(f"* {res.page_content} [{res.metadata}]")
